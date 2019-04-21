@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 class SafeRequest {
   /**
    * @constructor
-   * @param {请求接口URL} url 
+   * @param {请求接口URL} url
    */
   constructor (url) {
     this.url = url;
@@ -13,15 +13,21 @@ class SafeRequest {
   /**
    * 统一处理请求接口
    * @method
-   * @param {请求参数} options 
+   * @param {请求参数} options
    * @returns Promise
    */
   fetch (options) {
     const urls = this.baseUrl + this.url;
-    const resPromise = fetch(urls, options ? {
-      method: options.method,
-      body: options.params
-    } : '');
+    // const resPromise = fetch(urls, options ? {
+    //   method: options.method,
+    //   body: options.params
+    // } : '');
+    const resPromise = options
+      ? fetch(urls, {
+        method: options.method,
+        body: options.params
+      })
+      : fetch(urls);
     /**
      * 对返回的结果进行处理
      */
@@ -57,4 +63,4 @@ class SafeRequest {
   }
 }
 
-module.exports = new SafeRequest();
+module.exports = SafeRequest;
