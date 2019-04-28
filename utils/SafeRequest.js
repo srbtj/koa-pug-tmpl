@@ -23,14 +23,7 @@ class SafeRequest {
     //   body: options.params
     // } : '');
     const resPromise = options
-<<<<<<< HEAD
       ? fetch(urls, { method: options.method, body: options.params })
-=======
-      ? fetch(urls, {
-        method: options.method,
-        body: options.params
-      })
->>>>>>> 06405de8ce15e5dd57b00bb4ea87c59fb698b5d4
       : fetch(urls);
     /**
      * 对返回的结果进行处理
