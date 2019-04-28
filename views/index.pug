@@ -2,7 +2,7 @@ extends layout.pug
 
 block styles
   link(rel="stylesheet", href="/styles/index.css")
-  
+
 block content
   - var urls = 'http://www.baidu.com';
   a(href=`${urls}` class="a-link") 百度
@@ -34,5 +34,8 @@ block content
   |
   |
   p= content
+
+  x-clock
+
 block scripts
   script(src="/js/index.js")
