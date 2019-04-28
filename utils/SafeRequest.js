@@ -18,10 +18,13 @@ class SafeRequest {
    */
   fetch (options) {
     const urls = this.baseUrl + this.url;
-    const resPromise = fetch(urls, options ? {
-      method: options.method,
-      body: options.params
-    } : '');
+    // const resPromise = fetch(urls, options ? {
+    //   method: options.method,
+    //   body: options.params
+    // } : '');
+    const resPromise = options
+      ? fetch(urls, { method: options.method, body: options.params })
+      : fetch(urls);
     /**
      * 对返回的结果进行处理
      */
